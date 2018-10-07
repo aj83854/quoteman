@@ -1,18 +1,18 @@
 """            Will scrape: "http://quotes.toscrape.com"
 Could be customized to scrape similarly built sites for different things
 """
-import requests
 from csv import DictWriter
-from bs4 import BeautifulSoup
 from random import choice
 from time import sleep
 
+import requests
+from bs4 import BeautifulSoup
 
 def list_all_quotes(target_url):
     """
     With a url as an argument, scrapes through each page
-    WITHOUT CRAWLING, identifies quotes, & returns an all_quotes list obj 
-    containing separate dictionaries with 'text', 'author', and 'bio-url' 
+    WITHOUT CRAWLING, identifies quotes, & returns an all_quotes list obj
+    containing separate dictionaries with 'text', 'author', and 'bio-url'
     as keys for each quote in the list.
 
     Should be assigned to a variable for use:
@@ -20,8 +20,8 @@ def list_all_quotes(target_url):
       #>>> type(example)      # list
       #>>> quote = randquote(example)
       #>>> type(quote)        # dict
-    
-    Useful with randquote() (defined below), which takes an instance of this 
+
+    Useful with randquote() (defined below), which takes an instance of this
     method as an argument to provide a quote at random.
     """
     page_url = "/page/1"
@@ -93,3 +93,4 @@ def get_urls(quotes_obj):
     """Take quotes obj, extracts biography stub-urls; returns bio_urls obj"""
     bio_urls = quotes_obj.find("a")["href"]
     return bio_urls
+
